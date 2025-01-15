@@ -16,9 +16,9 @@ export default function Select({
     const listItems = useMemo(() => options.map((opt, index) =>
         <>
             {index === 0 && (
-                <option disabled selected value=''>Choose One</option>
+                <option key={0} disabled value=''>Choose One</option>
             )}
-            <option key={opt.id} value={opt.value}>{opt.title}</option>
+            <option key={opt.key} value={opt.value}>{opt.title}</option>
         </>
     ), [options])
 
@@ -26,7 +26,7 @@ export default function Select({
         <div>
             <label htmlFor={id} className="mt-8 grid grid-cols-6 gap-6 label">{text}</label>
             {/* include validation with required or other standard HTML validation rules */}
-            <select id={id} className={`${className}`} {...register}>
+            <select id={id} defaultValue='' className={`${className}`} {...register}>
                 {listItems}
             </select>
             {/* errors will return when field validation fails  */}

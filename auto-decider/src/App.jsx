@@ -1,9 +1,10 @@
 import './App.css';
 import { useForm } from "react-hook-form"
-import { CargoOptions, CarTypeOptions, ClearanceOptions, DesignOptions, DistanceOptions, DoorOptions, FillUpOptions, FuelOptions, RowOptions, TravelOptions } from './Options/CarOptions';
+import { AutoOptions, CargoOptions, CarTypeOptions, ClearanceOptions, DesignOptions, DistanceOptions, DoorOptions, FillUpOptions, FuelOptions, RowOptions, TravelOptions, UseOptions } from './Options/CarOptions';
 import Select from './Components/Select';
 import Input from './Components/Input';
 import RadioGroup from './Components/RadioGroup';
+import TextArea from './Components/TextArea';
 
 
 export default function App() {
@@ -16,6 +17,8 @@ export default function App() {
 
 
   const onSubmit = (data) => console.log(data)
+
+  const watchUseType = watch("UseType")
 
   console.log(watch("example")) // watch input value by passing the name of it
 
@@ -113,6 +116,59 @@ export default function App() {
             text="Sporty or Casual?"
             options={DesignOptions}
             className="full-width"
+            control={control}
+          />
+
+          <TextArea
+            register={{ ...register("SpecFeats", { required: true }) }}
+            id="SpecFeats"
+            text="Any special features you must have?"
+            control={control}
+          />
+
+          <Select
+            register={{ ...register("UseType", { required: true }) }}
+            id="UseType"
+            text="Intended use (daily, family, weekends only, collection (I count the milage) all of the above)"
+            options={UseOptions}
+            control={control}
+          />
+
+          {watchUseType === "Other" && (
+            <TextArea
+              register={{ ...register("OtherUse", { required: false }) }}
+              id="OtherUse"
+              text="Please elaborate for your choice of other"
+              control={control}
+            />
+          )}
+
+          <Input
+            register={{ ...register("Budget", { required: true }) }}
+            id='Budget'
+            text='What is our budget? (For both new and used)'
+            control={control}
+          />
+
+          <Input
+            register={{ ...register("BrandPModel", { required: true }) }}
+            id='BrandPModel'
+            text='Any specific brand and model you prefer?'
+            control={control}
+          />
+
+          <TextArea
+            register={{ ...register("Preference", { required: false }) }}
+            id="Preference"
+            text="From what you have driven/rode in, is there anything you liked?"
+            control={control}
+          />
+
+          <Select
+            register={{ ...register("AutoOps", { required: true }) }}
+            id="AutoOps"
+            text="How many options would you like to receive?"
+            options={AutoOptions}
             control={control}
           />
 
