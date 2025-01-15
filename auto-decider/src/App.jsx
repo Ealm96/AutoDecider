@@ -1,8 +1,9 @@
 import './App.css';
 import { useForm } from "react-hook-form"
-import { CargoOptions, DoorOptions, RowOptions } from './Options/CarOptions';
+import { CargoOptions, CarTypeOptions, ClearanceOptions, DesignOptions, DistanceOptions, DoorOptions, FillUpOptions, FuelOptions, RowOptions, TravelOptions } from './Options/CarOptions';
 import Select from './Components/Select';
 import Input from './Components/Input';
+import RadioGroup from './Components/RadioGroup';
 
 
 export default function App() {
@@ -10,7 +11,7 @@ export default function App() {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    control,
   } = useForm()
 
 
@@ -29,35 +30,93 @@ export default function App() {
             register={{ ...register("Email", { required: true }) }}
             id='Email'
             text='Email'
+            control={control}
           />
-          {/* errors will return when field validation fails  */}
-          {errors.Email && <span className="red-text">This field is required</span>}
 
           <Select
             register={{ ...register("NumOfRows", { required: true }) }}
             id="NumOfRows"
             text="Do you want a second row?"
             options={RowOptions}
+            control={control}
           />
-          {errors.NumOfRows && <span className="red-text">This field is required</span>}
 
           <Select
             register={{ ...register("NumOfDoors", { required: true }) }}
             id="NumOfDoors"
             text="2 or 4 doors?"
             options={DoorOptions}
+            control={control}
           />
-          {errors.NumOfDoors && <span className="red-text">This field is required</span>}
 
           <Select
             register={{ ...register("CargoSpace", { required: true }) }}
             id="CargoSpace"
             text="Is cargo space a necessity?"
             options={CargoOptions}
+            control={control}
           />
-          {errors.CargoSpace && <span className="red-text">This field is required</span>}
 
-          <input type="submit" />
+          <Select
+            register={{ ...register("LDRent", { required: true }) }}
+            id="LDRent"
+            text="Do you want to rent a car or use yours when traveling long distances?"
+            options={TravelOptions}
+            control={control}
+          />
+
+          <Select
+            register={{ ...register("GClearance", { required: true }) }}
+            id="GClearance"
+            text="Ground Clearance"
+            options={ClearanceOptions}
+            control={control}
+            className="full-width"
+          />
+
+          <Select
+            register={{ ...register("TravelDistance", { required: true }) }}
+            id="TravelDistance"
+            text="Do you plan to drive more long distances or do local driving normally?"
+            options={DistanceOptions}
+            control={control}
+            className="full-width"
+          />
+
+          <Select
+            register={{ ...register("CarType", { required: true }) }}
+            id="CarType"
+            text="Do you want a coupe, sedan or SUV?"
+            options={CarTypeOptions}
+            control={control}
+          />
+
+          <RadioGroup
+            register={{ ...register("GasFreq", { required: true }) }}
+            id="GasFreq"
+            text="How often do you want to fill up?"
+            options={FillUpOptions}
+            control={control}
+          />
+
+          <Select
+            register={{ ...register("FuelType", { required: true }) }}
+            id="FuelType"
+            text="Gas or Electric?"
+            options={FuelOptions}
+            control={control}
+          />
+
+          <Select
+            register={{ ...register("DesignType", { required: true }) }}
+            id="DesignType"
+            text="Sporty or Casual?"
+            options={DesignOptions}
+            className="full-width"
+            control={control}
+          />
+
+          <input type="submit" className='input' />
         </form>
       </div>
     </main>
