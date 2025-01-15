@@ -1,25 +1,36 @@
 import React, { useMemo } from 'react';
+import { useFormState } from 'react-hook-form';
 
 
 export default function Select({
     register,
     id,
     text,
-    options
+    options,
+    control,
+    className,
 }) {
 
-    const listItems = useMemo(() => options.map(opt =>
-        <option key={opt.id} value={opt.value}>{opt.title}</option>
+    const { errors } = useFormState({ control })
+
+    const listItems = useMemo(() => options.map((opt, index) =>
+        <>
+            {index === 0 && (
+                <option disabled selected value=''>Choose One</option>
+            )}
+            <option key={opt.id} value={opt.value}>{opt.title}</option>
+        </>
     ), [options])
 
     return (
         <div>
-            <label htmlFor={id} className="mt-8 grid grid-cols-6 gap-6">{text}</label>
+            <label htmlFor={id} className="mt-8 grid grid-cols-6 gap-6 label">{text}</label>
             {/* include validation with required or other standard HTML validation rules */}
-            <select id={id} {...register}>
+            <select id={id} className={`${className}`} {...register}>
                 {listItems}
             </select>
             {/* errors will return when field validation fails  */}
+            {errors[id] && <span className="red-text">This field is required</span>}
         </div>
     )
 }
