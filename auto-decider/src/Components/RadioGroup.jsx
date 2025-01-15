@@ -14,8 +14,8 @@ export default function RadioGroup({
 
     const radioItems = useMemo(() => options.map((opt, index) =>
         <>
-            <input type='radio' className='input-radio' id={opt.id} name={id} value={opt.value} {...register} />
-            <label htmlFor={opt.id} className='my-label'>{opt.title}</label>
+            <input type='radio' className='input-radio' id={opt.key} name={id} value={opt.value} {...register} />
+            <label htmlFor={opt.key} className='my-label'>{opt.title}</label>
             {index !== options.length - 1 && (
                 <br />
             )}
