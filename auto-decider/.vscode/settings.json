@@ -1,0 +1,4 @@
+{
+    "typescript.tsserver.watchOptions": "vscode",
+    "javascript.suggest.paths": false
+}
