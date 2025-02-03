@@ -1,5 +1,6 @@
 import '../App.css';
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import {
     AutoOptions,
     CargoOptions,
@@ -18,6 +19,7 @@ import Select from '../Components/Select';
 import Input from '../Components/Input';
 import RadioGroup from '../Components/RadioGroup';
 import TextArea from '../Components/TextArea';
+import formatSubmit from '../Utils/formatSubmit';
 
 
 export function FormPage() {
@@ -29,7 +31,11 @@ export function FormPage() {
     } = useForm()
 
 
-    const onSubmit = (data) => console.log(data)
+    const next = useNavigate();
+    const onSubmit = (data) => {
+        console.log(formatSubmit(data))
+        next('DisplayPage')
+    }
 
     const watchUseType = watch("UseType")
 
