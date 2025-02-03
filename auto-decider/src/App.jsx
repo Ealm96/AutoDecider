@@ -7,7 +7,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<FormPage />} />
+        <Route path="/AutoDecider/" index element={<FormPage />} />
         <Route path='DisplayPage' element={<DisplayPage />} />
       </Routes>
     </BrowserRouter>
