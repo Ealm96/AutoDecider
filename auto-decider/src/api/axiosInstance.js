@@ -1,13 +1,7 @@
 import axios from "axios";
 
-const API_KEY = process.env.CARAPI_API_TOKEN;
-
 const axiosInstance = axios.create({
-    baseURL: "https://api.edmunds.com/api/vehicle/v2",
-    headers: {
-        "fmt": "json",
-        "api_key": API_KEY
-    },
+    baseURL: "https://www.carqueryapi.com/api/0.3/?callback=?&cmd=getMakes&sold_in_us=1",
 });
 
 export default axiosInstance;

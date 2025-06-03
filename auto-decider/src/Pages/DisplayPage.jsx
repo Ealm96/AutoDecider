@@ -3,13 +3,13 @@ import LoadingWheel from "../Components/LoadingWheel";
 import axiosInstance from "../api/axiosInstance";
 
 const fetchData = async () => {
-    const { data } = await axiosInstance.get("/makes");
+    const { data } = await axiosInstance.get();
     return data;
 };
 
 const DisplayPage = () => {
     const { data, error, isLoading } = useQuery({
-        queryKey: ["Vehicle Makes"],
+        queryKey: ["Vehicle Makes Sold in the US"],
         queryFn: fetchData
     });
 
