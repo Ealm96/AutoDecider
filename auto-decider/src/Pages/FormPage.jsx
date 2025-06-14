@@ -20,6 +20,8 @@ import Input from '../Components/Input';
 import RadioGroup from '../Components/RadioGroup';
 import TextArea from '../Components/TextArea';
 import formatSubmit from '../Utils/formatSubmit';
+import { useContext } from 'react';
+import DataContext from '../Utils/contexts/DataContext';
 
 
 export function FormPage() {
@@ -30,10 +32,12 @@ export function FormPage() {
         control,
     } = useForm()
 
+    const { updateFormData } = useContext(DataContext)
 
     const next = useNavigate();
     const onSubmit = (data) => {
-        console.log(formatSubmit(data))
+        const formattedData = formatSubmit(data)
+        updateFormData(formattedData)
         next('DisplayPage')
     }
 

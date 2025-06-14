@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FormPage } from './Pages/FormPage';
-import DisplayPage from './Pages/DisplayPage';
+import { DisplayPage } from './Pages/DisplayPage';
 
 export default function App() {
 

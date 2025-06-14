@@ -1,13 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import LoadingWheel from "../Components/LoadingWheel";
 import axiosInstance from "../api/axiosInstance";
+import { useContext } from "react";
+import DataContext from "../Utils/contexts/DataContext";
 
 const fetchData = async () => {
     const { data } = await axiosInstance.get();
     return data;
 };
 
-const DisplayPage = () => {
+export function DisplayPage() {
+    const { formData } = useContext(DataContext);
+    console.log(formData);
+
     const { data, error, isLoading } = useQuery({
         queryKey: ["Vehicle Makes Sold in the US"],
         queryFn: fetchData
@@ -23,5 +28,3 @@ const DisplayPage = () => {
         </div>
     )
 };
-
-export default DisplayPage;
