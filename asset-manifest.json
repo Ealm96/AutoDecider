@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/AutoDecider/static/css/main.1eeee537.css",
-    "main.js": "/AutoDecider/static/js/main.49623b19.js",
+    "main.js": "/AutoDecider/static/js/main.499aec0c.js",
     "index.html": "/AutoDecider/index.html",
     "main.1eeee537.css.map": "/AutoDecider/static/css/main.1eeee537.css.map",
-    "main.49623b19.js.map": "/AutoDecider/static/js/main.49623b19.js.map"
+    "main.499aec0c.js.map": "/AutoDecider/static/js/main.499aec0c.js.map"
   },
   "entrypoints": [
     "static/css/main.1eeee537.css",
-    "static/js/main.49623b19.js"
+    "static/js/main.499aec0c.js"
   ]
 }
