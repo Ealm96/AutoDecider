@@ -1,11 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import LoadingWheel from "../Components/LoadingWheel";
 import axiosInstance from "../api/axiosInstance";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import DataContext from "../Utils/contexts/DataContext";
 
 const fetchData = async () => {
-    const { data } = await axiosInstance.get();
+    const { data } = await axiosInstance.get('characters')
+        .then(response => {
+            // Remove the callback function from the response
+            return JSON.parse(response.data);
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+            throw new Error("Failed to fetch data");
+        });
     return data;
 };
 
