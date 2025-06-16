@@ -5,10 +5,10 @@ import React, { useContext } from "react";
 import DataContext from "../Utils/contexts/DataContext";
 
 const fetchData = async () => {
-    const { data } = await axiosInstance.get('characters')
+    const { data } = await axiosInstance.get('trending/anime')
         .then(response => {
             // Remove the callback function from the response
-            return JSON.parse(response.data);
+            return response.data;
         })
         .catch(error => {
             console.error("Error fetching data:", error);
@@ -32,7 +32,7 @@ export function DisplayPage() {
     return (
         <div>
             <h1>API DATA</h1>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
+            <pre color="white">{JSON.stringify(data, null, 2)}</pre>
         </div>
     )
 };

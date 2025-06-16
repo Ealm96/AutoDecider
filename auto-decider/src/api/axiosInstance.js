@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: "https://www.dragonball-api.com/api",
+    baseURL: "https://kitsu.io/api/edge",
     timeout: 1000,
     headers: {
         'Access-Control-Allow-Origin': '*',
