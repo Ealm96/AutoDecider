@@ -187,6 +187,7 @@ button {
 
 .display-container {
   display: block;
+  height: 300px;
 }
 
 .display-cards-container {
@@ -194,7 +195,6 @@ button {
   flex-flow: row wrap;
   justify-content: space-between;
   justify-content: center;
-  padding-bottom: 120%;
 }
 
 .display-card {
