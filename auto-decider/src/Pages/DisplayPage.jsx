@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import LoadingWheel from "../Components/LoadingWheel";
 import axiosInstance from "../api/axiosInstance";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import DataContext from "../Utils/contexts/DataContext";
+import { DisplayCard } from "../Components/DisplayCard";
 
 const fetchData = async () => {
     const { data } = await axiosInstance.get('trending/anime')
@@ -26,13 +27,25 @@ export function DisplayPage() {
         queryFn: fetchData
     });
 
+    console.log("Data fetched:", data);
+
     if (isLoading) return <LoadingWheel />;
     if (error) return <p>Error: {error.message}</p>;
 
     return (
         <div>
-            <h1>API DATA</h1>
-            <pre color="white">{JSON.stringify(data, null, 2)}</pre>
+            <h1 color="white">API DATA</h1>
+            <div className="display-cards-container">
+                {data.map((item, index) => (
+                    <DisplayCard
+                        key={index}
+                        title={item.attributes.canonicalTitle || `Item ${index + 1}`}
+                        imageUrl={item.attributes.posterImage.tiny || "https://via.placeholder.com/150"}
+                        description={item.attributes.synopsis || "No description available."}
+                        onClick={() => console.log(`Clicked on ${item.attributes.canonicalTitle}`)}
+                    />
+                ))}
+            </div>
         </div>
     )
 };
