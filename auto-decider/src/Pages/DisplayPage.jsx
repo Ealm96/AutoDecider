@@ -40,7 +40,7 @@ export function DisplayPage() {
                     <DisplayCard
                         key={index}
                         title={item.attributes.canonicalTitle || `Item ${index + 1}`}
-                        imageUrl={item.attributes.posterImage.tiny || "https://via.placeholder.com/150"}
+                        imageUrl={item.attributes.posterImage.small || "https://via.placeholder.com/150"}
                         description={item.attributes.synopsis || "No description available."}
                         onClick={() => console.log(`Clicked on ${item.attributes.canonicalTitle}`)}
                     />
