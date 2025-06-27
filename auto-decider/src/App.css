@@ -117,6 +117,7 @@ input[type="button"]:hover {
 button[type="submit"],
 input[type="button"],
 input[type="submit"] {
+  appearance: none;
   -webkit-appearance: none;
 }
 
@@ -157,6 +158,10 @@ button {
 
 .red-text {
   color: red;
+}
+
+.white {
+  color: white;
 }
 
 .full-width {
@@ -238,6 +243,18 @@ button {
 ::after,
 ::before {
   box-sizing: border-box;
+}
+
+.tab-container {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: center;
+}
+
+.tab-button {
+  margin-top: 0%;
+  margin-left: 10px;
 }
 
 textarea {
