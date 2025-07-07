@@ -51,35 +51,35 @@ export function DisplayPage() {
         <div>
             <h1 color="white">Anime Data</h1>
             <div className="tab-container">
-                <button className="tab-button" onClick={() => {
+                <button type="button" className="tab-button" onClick={() => {
                     setSearchTerm(animeTypes.TRENDING.val);
                     setSelectedType(animeTypes.TRENDING.type);
                 }}>
-                    Trending Anime
+                    <h2 className="tab-h2">Trending Anime</h2>
                 </button>
-                <button className="tab-button" onClick={() => {
+                <button type="button" className="tab-button" onClick={() => {
                     setSearchTerm(animeTypes.TV.val);
                     setSelectedType(animeTypes.TV.type);
                 }}>
-                    TV Anime
+                    <h2 className="tab-h2">TV Anime</h2>
                 </button>
-                <button className="tab-button" onClick={() => {
+                <button type="button" className="tab-button" onClick={() => {
                     setSearchTerm(animeTypes.MOVIE.val);
                     setSelectedType(animeTypes.MOVIE.type);
                 }}>
-                    Anime Movies
+                    <h2 className="tab-h2">Anime Movies</h2>
                 </button>
-                <button className="tab-button" onClick={() => {
+                <button type="button" className="tab-button" onClick={() => {
                     setSearchTerm(animeTypes.SPECIAL.val);
                     setSelectedType(animeTypes.SPECIAL.type);
                 }}>
-                    Specials
+                    <h2 className="tab-h2">Specials</h2>
                 </button>
-                <button className="tab-button" onClick={() => {
+                <button type="button" className="tab-button" onClick={() => {
                     setSearchTerm(animeTypes.OVA.val);
                     setSelectedType(animeTypes.OVA.type);
                 }}>
-                    OVA
+                    <h2 className="tab-h2">OVA</h2>
                 </button>
             </div>
             {isPending && (
