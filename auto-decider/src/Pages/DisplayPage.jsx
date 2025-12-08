@@ -1,7 +1,7 @@
+import React, { useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import LoadingWheel from "../Components/LoadingWheel";
 import axiosInstance from "../api/axiosInstance";
-import { useContext, useState } from "react";
 import DataContext from "../Utils/contexts/DataContext";
 import { DisplayCard } from "../Components/DisplayCard";
 
@@ -11,9 +11,6 @@ const animeTypes = Object.freeze({
     MOVIE: { val: "/anime?page[limit]=20&page[offset]=20", type: "movie" },
     OVA: { val: "/anime?page[limit]=20&page[offset]=100", type: "OVA" },
     SPECIAL: { val: "/anime?page[limit]=20&page[offset]=1200", type: "special" },
-    TV_SHORT: "tv_short",
-    WEB: "web",
-    MUSIC: "/anime"
 })
 
 const fetchData = async (val) => {
